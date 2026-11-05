@@ -2,7 +2,7 @@ import json
 import datetime
 import random
 print("                                                                                BliffOS")
-print("""Attenzione! Questa è la versione 0.9 di BliffOS,
+print("""Attenzione! Questa è la versione 1.0 di BliffOS,
        in cui potresti riscontrare dei problemi.
        Grazie per l'attenzione.""")
 while True:
@@ -15,7 +15,10 @@ while True:
     date: Mostra data e ora in quel momento.
     psr: Ti fa giocare a morra cinese: 1 significa carta, 2
     significa forbice e 3 significa pietra.
-    blifftext: """)
+    blifftext: Se scegli Crea, blifftext ti farà creare un file di testo che potrai salvare con nome.
+    Se scegli Carica, inserendo il nome del file di testo te lo farà vedere, ma non modificare.
+    number: Verrà generato un numero casuale, che tu dovrai indovinare.
+    upd: Dovrai indovinare se il numero generato sia maggiore di otto.""")
     
     elif command == "shutdown":
         print("Grazie per aver usato BliffOS!")
@@ -31,13 +34,10 @@ while True:
         elif operation == "-":
             print(first_number-second_number)
         elif operation == "*":
-            print(first_number*second_number)
+            print(first_number*second_number)a
         elif operation == "/":
             print(first_number/second_number)
-    elif command == "information":
-        print("""                                                           BliffOS, 2025-2026, all right reserved.
-        Creator: Giuliano Zambuto, 8 year.
-        Assistant: Daniele Zambuto, 43 year.""")
+    
     elif command == "date":
         print(datetime.datetime.now())
     elif command == "psr":
@@ -82,6 +82,7 @@ while True:
     elif command == "number":
         cpu_choice=random.randint(0,9)
         response=input("Indovina il mio numero! ")
+        int(response)
         if response == cpu_choice:
             print("Hai indovinato il mio numero!")
         else:
@@ -91,7 +92,23 @@ while True:
             print("MI-RE-DO-RE-RE#-MI-DO-RE-RE-DO-SI-DO-DO#-RE-SI-DO-MI-RE-DO-RE-RE#-MI-LA-SOL-FA#-SOL-SOL#-LA-SI-DO-DO-DO-DO-SOL-DO")
             print("""I Looney Tunes sono stati creati nel 1930, hanno cavalcato il mercato nel 1935 e nel 1937
              e nel 1940 sono diventati iconici con Bugs Bunny.""")
-
+            
+    elif command == "upd":
+        w_gm=True
+        while w_gm == True:
+            nm=random.randint(1,10)
+            ins=input("È maggiore o minore di 8?")
+            if ins==">" and nm>8:
+                print("Giusto!")
+                w_gm=True
+            elif ins=="<" and nm<8:
+                print("Giusto!")
+                w_gm=True
+            else:
+                print("Sbagliato! Riprova!")
+                w_gm=False
+                
+        
     else:
         print("Errore di Sintassi: Questo comando non esiste.")
     
